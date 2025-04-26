@@ -4,11 +4,12 @@ interface HeaderProps {
    options?: { name: string, value: string }[];
    dropdownFilter?: boolean;
    searchFilter?: boolean;
+   searchId?: string;
    title: string;
-   callback?: (name: string, value: string) => void;
+   callback?: (name?: string, value?: string) => void;
 }
 
-export const Header = ({ callback,  options, title, dropdownFilter=false, searchFilter = false }: HeaderProps) => {
+export const Header = ({ callback,  options, searchId, title, dropdownFilter=false, searchFilter = false }: HeaderProps) => {
    const [selectedOption, setSelectedOption] = useState('');
 
    const handleFilterChange = async ({ target }: React.ChangeEvent<HTMLSelectElement>) => {
@@ -48,7 +49,7 @@ export const Header = ({ callback,  options, title, dropdownFilter=false, search
                onKeyDown={(e => {
                   if (e.key === 'Enter') {
                      if (callback) {
-                        callback(title, (e.target as HTMLInputElement).value);
+                        callback(searchId, (e.target as HTMLInputElement).value);
                      }
                   }
                })}

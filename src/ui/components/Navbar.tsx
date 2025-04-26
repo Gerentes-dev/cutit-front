@@ -24,9 +24,9 @@ export const Navbar = () => {
 
                     <NavLink 
                         className="nav-item nav-link" 
-                        to="/tools"
+                        to="/products"
                     >
-                        Tools
+                        Productos
                     </NavLink>
                 </div>
             </div>

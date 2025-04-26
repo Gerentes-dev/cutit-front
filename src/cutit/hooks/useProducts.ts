@@ -1,16 +1,26 @@
 import { useState } from "react";
 import { ProductCategoryRequest } from "../types/products";
+import { getProduct, getProductWithFilter } from "../services";
 
 export const useProducts = () => {
    const [products, setProducts] = useState([]);
-   const getProductWithFilter = async (productCategoryRequest: ProductCategoryRequest): Promise<any> => {
+   const getProductsWithFilter = async (productCategoryRequest: ProductCategoryRequest): Promise<void> => {
       try {
          const resp = await getProductWithFilter(productCategoryRequest)
-         setProducts(resp.data);
+         setProducts(resp || []);
       } catch (error) {
          console.log(error);
       }
    };
 
-   return { products, getProductWithFilter };
+   const getProducts = async (): Promise<void> => {
+      try {
+         const resp = await getProduct();
+         setProducts(resp || []);
+      } catch (error) {
+         console.log(error);
+      }
+   };
+
+   return { products, getProductsWithFilter, getProducts };
 }

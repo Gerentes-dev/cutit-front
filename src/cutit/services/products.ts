@@ -3,7 +3,7 @@ import { ProductCategoryRequest } from "../types/products";
 
 export const getProduct = async () => {
    try {
-      const resp = await reqResApi.get('chainsaws/all');
+      const resp = await reqResApi.get('products');
       return resp.data;
    } catch (error) {
       console.log(error);
@@ -21,9 +21,9 @@ export const getProductWithFilter = async ({
          {
             params:
             {
-               category,
-               minPrice,
-               maxPrice,
+               ...(category && { category }),
+               ...(minPrice && { minPrice }),
+               ...(maxPrice && { maxPrice }),
                stockAvailable,
             }
          });
