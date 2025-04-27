@@ -28,6 +28,13 @@ export const Navbar = () => {
                     >
                         Productos
                     </NavLink>
+
+                    <NavLink 
+                        className="nav-item nav-link" 
+                        to="/customers"
+                    >
+                        Customers
+                    </NavLink>
                 </div>
             </div>
 
