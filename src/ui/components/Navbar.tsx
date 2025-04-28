@@ -35,6 +35,12 @@ export const Navbar = () => {
                     >
                         Customers
                     </NavLink>
+                    <NavLink 
+                        className="nav-item nav-link" 
+                        to="/inventories"
+                    >
+                        Inventarios
+                    </NavLink>
                 </div>
             </div>
 
