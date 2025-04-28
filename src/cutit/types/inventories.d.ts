@@ -4,5 +4,7 @@ export interface Inventory {
     productName:    string;
     quantity:       number;
     lastUpdated:    string;
-    product:        object;
+    product:        {
+        modelo: string;
+    };
 }
