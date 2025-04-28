@@ -3,6 +3,7 @@ import { Customer } from "../../types/customers";
 import { getCustomers, getCustomersByDocument, getCustomersByName } from "../../services/customers";
 import { Table } from "../../components/Table";
 import { Header } from "../../components/Table/Header";
+import { useNavigate } from 'react-router-dom';
 
 export const Customers = () => {
   const [data, setData] = useState<Customer[]>([]);
@@ -10,6 +11,8 @@ export const Customers = () => {
   const [filter, setFilter] = useState<string>('');
   const [filterActive, setFilterActive] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState('');
+
+  const navigate = useNavigate();
 
   const getAllCustoemrs = () => {
     getCustomers().then((resp) => {
@@ -94,6 +97,7 @@ export const Customers = () => {
               <Header title="Numero Telefono"/>
               <Header title="Direccion"/>
               <Header title="Ciudad"/>
+              <Header title="Acciones" /> {/* Nueva columna */}
             </tr>
           </thead>
           <tbody>
@@ -108,6 +112,15 @@ export const Customers = () => {
                   <td>{item.phoneNumber}</td>
                   <td>{item.address}</td>
                   <td>{item.city}</td>
+                  <td>
+            <button
+              type="button"
+              className="btn btn-sm btn-warning"
+              onClick={() => navigate(`/customers/edit/${item.id}`)}
+            >
+              Editar
+            </button>
+          </td>
                 </tr>
               ))
             }
