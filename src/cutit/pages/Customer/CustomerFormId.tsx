@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { getCustomerById, updateCustomer } from '../../services/customers'; // Asegúrate de tener estas funciones
 import { useParams } from 'react-router-dom'; // Import useParams
