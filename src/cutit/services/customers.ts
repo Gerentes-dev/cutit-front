@@ -35,3 +35,23 @@ export const addCustomer = async (data:any) => {
     console.log(error);
   }
 };
+
+// Obtener un cliente por ID 
+export const getCustomerById = async (id: string) => {
+  try {
+    const { data } = await reqResApi.get(`customers/${id}`);
+    return data || null;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Actualizar un cliente por ID 
+export const updateCustomer = async (id: string, data: any) => {
+  try {
+    const { data: responseData } = await reqResApi.put(`customers/${id}`, data);
+    return responseData || null;
+  } catch (error) {
+    console.log(error);
+  }
+};
