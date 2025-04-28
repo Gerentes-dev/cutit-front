@@ -26,3 +26,12 @@ export const getCustomersByDocument = async (filter:string) => {
     console.log(error);
   }
 };
+
+export const addCustomer = async (data:any) => {
+  try {
+    const resp = await reqResApi.post('customers/save',data);
+    return resp.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
