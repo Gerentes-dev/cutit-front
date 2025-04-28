@@ -19,19 +19,32 @@ export const Navbar = () => {
                         className="nav-item nav-link" 
                         to="/home"
                     >
-                        Home
+                        Inicio
                     </NavLink>
 
                     <NavLink 
                         className="nav-item nav-link" 
-                        to="/tools"
+                        to="/products"
                     >
-                        Tools
+                        Productos
+                    </NavLink>
+
+                    <NavLink 
+                        className="nav-item nav-link" 
+                        to="/customers"
+                    >
+                        Clientes
+                    </NavLink>
+                    <NavLink 
+                        className="nav-item nav-link" 
+                        to="/inventories"
+                    >
+                        Inventarios
                     </NavLink>
                 </div>
             </div>
 
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            {/* <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul className="navbar-nav ml-auto">
                     <NavLink 
                         className="nav-item nav-link" 
@@ -40,7 +53,7 @@ export const Navbar = () => {
                         Logout
                     </NavLink>
                 </ul>
-            </div>
+            </div> */}
         </nav>
     )
 }
