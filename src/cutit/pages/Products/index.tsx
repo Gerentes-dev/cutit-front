@@ -23,7 +23,8 @@ export const Products = () => {
  }
 
   return (
-    <div className="mt-2">
+    <div className="container mt-4">
+      <h1>Productos</h1>
       <Filters setFilter={setFilter} filter={filter}/>
       <div className="d-flex flex-row gap-2 mb-2">
             <button type="button" className="btn btn-primary col-2" onClick={onFilter}>Filtrar</button>

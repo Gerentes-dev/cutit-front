@@ -42,8 +42,8 @@ export const Customers = () => {
 
   useEffect(() => {
     setFilterOptions([
-      {id: 'Nombre'},
-      {id: 'Documento'}
+      { id: 'Nombre' },
+      { id: 'Documento' }
     ])
 
     setSelectedOption('Nombre');
@@ -54,7 +54,7 @@ export const Customers = () => {
   return (
     <>
       <div className="container mt-4">
-        <h1>Customers</h1>
+        <h1>Clientes</h1>
         <div>
           <h5>Filtro</h5>
           <div className="d-flex flex-row gap-2 mb-2">
@@ -64,7 +64,7 @@ export const Customers = () => {
               className="form-select form-select-sm"
               style={{ width: '120px' }}
             >
-              {filterOptions?.map(({id}) => (
+              {filterOptions?.map(({ id }) => (
                 <option key={id} value={id} >
                   {id}
                 </option>
@@ -83,20 +83,30 @@ export const Customers = () => {
               filterActive &&
               <button type="button" className="btn btn-primary col-2" onClick={onReset}>Resetear</button>
             }
+            <div className="d-flex flex-row gap-2 flex-end" style={{ width: '100%' }}>
+              <button
+                type="button"
+                className="btn btn-sm btn-primary"
+                style={{ width: '100px', marginLeft: 'auto' }}
+                onClick={() => navigate(`/customers/create`)}
+              >
+                Crear
+              </button>
+            </div>
           </div>
         </div>
-        <br/>
+        <br />
         <Table>
           <thead>
             <tr>
               <Header title="Nombre" />
               <Header title="Apellido" />
               <Header title="Tipo Documento" />
-              <Header title="Numero Documento"/>
-              <Header title="Correo"/>
-              <Header title="Numero Telefono"/>
-              <Header title="Direccion"/>
-              <Header title="Ciudad"/>
+              <Header title="Numero Documento" />
+              <Header title="Correo" />
+              <Header title="Numero Telefono" />
+              <Header title="Direccion" />
+              <Header title="Ciudad" />
               <Header title="Acciones" /> {/* Nueva columna */}
             </tr>
           </thead>
@@ -113,14 +123,14 @@ export const Customers = () => {
                   <td>{item.address}</td>
                   <td>{item.city}</td>
                   <td>
-            <button
-              type="button"
-              className="btn btn-sm btn-warning"
-              onClick={() => navigate(`/customers/edit/${item.id}`)}
-            >
-              Editar
-            </button>
-          </td>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-warning"
+                      onClick={() => navigate(`/customers/edit/${item.id}`)}
+                    >
+                      Editar
+                    </button>
+                  </td>
                 </tr>
               ))
             }
