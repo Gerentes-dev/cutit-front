@@ -3,9 +3,11 @@ import { Table } from "../../components/Table";
 import { Header } from "../../components/Table/Header";
 import { getInventories } from "../../services/inventories";
 import { Inventory } from "../../types/inventories";
+import { useNavigate } from "react-router-dom";
 
 export const Inventories = () => {
   const [data, setData] = useState<Inventory[]>([]);
+  const navigate = useNavigate();
 
   const getAllInventories = () => {
     getInventories().then((resp) => {
@@ -21,6 +23,16 @@ export const Inventories = () => {
     <>
       <div className="container mt-4">
         <h1>Inventarios</h1>
+        <div className="d-flex flex-row gap-2 flex-end" style={{ width: '100%' }}>
+              <button
+                type="button"
+                className="btn btn-sm btn-primary"
+                style={{ width: '100px', marginLeft: 'auto' }}
+                onClick={() => navigate(`/inventories/create`)}
+              >
+                Crear
+              </button>
+            </div>
         <br/>
         <Table>
           <thead>
